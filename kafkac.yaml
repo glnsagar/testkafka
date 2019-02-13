@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafkac-deployment
+  labels:
+    app: kafkac
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafkac
+  template:
+    metadata:
+      labels:
+        app: kafkac
+    spec:
+      containers:
+      - name: kafkac
+        image: kafkatest:latest
+        imagePullPolicy: Never
